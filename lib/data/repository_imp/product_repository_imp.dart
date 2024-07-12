@@ -13,16 +13,17 @@ class ProductRepositoryImp implements ProductRepository {
   ProductRepositoryImp(this.productDataSource);
 
   @override
-  Future<Either<Failure, List<ProductData>>> getHomeData() async {
+  Future<Either<Failure, List<ProductData>>> getProductData() async {
     try {
       final response = await productDataSource.getproductList();
       if (response.statusCode == 200) {
-        List<ProductData> productDataList = [];
+        List<ProductDataModel> productDataList = [];
         var responseData = response.data["products"];
 
         for (var e in responseData) {
           productDataList.add(ProductDataModel.fromJSON(e));
         }
+
         return Right(productDataList);
       } else {
         return Left(

@@ -1,11 +1,12 @@
 class ProductData {
   final int id;
   final String title;
-  final double description;
-  final double price;
-  final double? discountRate;
+  final String description;
+  final num price;
+  final num? discountRate;
   final double? rating;
-  final List<String> images;
+
+  final String images;
 
   ProductData({
     required this.id,

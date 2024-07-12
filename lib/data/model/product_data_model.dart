@@ -19,6 +19,6 @@ class ProductDataModel extends ProductData {
         price: json["price"],
         discountRate: json["discountPercentage"],
         rating: json["rating"],
-        images: json["images"],
+        images: json["images"][0],
       );
 }
